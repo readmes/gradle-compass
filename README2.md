@@ -1,8 +1,8 @@
-# Gradle Compass plugin
+# Gradle Compass plugin ![what-why](https://cs.adelaide.edu.au/~christoph/badges/content-what-why-brightgreen.svg)
 
 A [SASS][sass] / [Compass][compass] plugin for [Gradle][gradle]. The plugin uses JRuby to install and run Compass.
 
-## Tasks
+## Tasks ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 The plugin adds the following tasks:
 
@@ -10,15 +10,15 @@ The plugin adds the following tasks:
 
 Compiles all SASS files. Equivalent to the `compass compile` command. The task supports incremental build.
 
-### watchSass
+### watchSass ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 Compiles and watches all SASS files. Equivalent to the `compass watch` command. The task runs in the background so it can be added to the dependency chain for the task that starts your application.
 
-### installCompass
+### installCompass ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 Installs the Compass Ruby gem and any additional gems you specify. This is executed automatically by the `compileSass` and `watchSass` tasks.
 
-## Installation
+## Installation ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 Add the plugin's Bintray repository to your `buildscript` and apply the plugin:
 
@@ -40,7 +40,7 @@ repositories {
 }
 ```
 
-## Configuration
+## Configuration ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 General configuration for the plugin goes inside a `compass` block in your build file and will apply to all tasks. You can also specify configuration properties on the individual tasks (for example you may want to set `environment = "production"` on the *compileSass* and `debugInfo = true` on *watchSass*). As a minimum you must specify the target directory where compiled CSS files should go and the source directories containing SASS/SCSS files. For example:
 
@@ -51,11 +51,11 @@ compass {
 }
 ```
 
-### Configuration parameters
+### Configuration parameters ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg) ![references](https://cs.adelaide.edu.au/~christoph/badges/content-references-orange.svg)
 
 The full set of parameters supported by the plugin is…
 
-#### JRuby options
+#### JRuby options ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 * `jrubyVersion`: the version of JRuby to install. The current Default is to `1.7.8`.
 * `gemPath`: the directory where the plugin will install Ruby gems. Defaults to `<project dir>/.jruby/gems`.
@@ -63,7 +63,7 @@ The full set of parameters supported by the plugin is…
 * `encoding`: the file encoding used by JRuby. The default is your platform default encoding.
 * `jvmArgs`: additional arguments to pass to the JVM when running JRuby. The default is blank.
 
-#### Paths
+#### Paths ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 * `cssDir` **required**: the target directory where compiled CSS is output. Equivalent to `--css-dir`.
 * `sassDir` **required**: the source directory where you keep *.scss* and/or *.sass* files. Equivalent to `--sass-dir`.
@@ -72,7 +72,7 @@ The full set of parameters supported by the plugin is…
 * `fontsDir`: the source directory where you keep fonts. Equivalent to `--fonts-dir`.
 * `importPath`: a set of directories containing other Sass stylesheets. Specifying this allows you to reference those stylesheets in `@import` directives. Equivalent to `--additional_import_paths`.
 
-#### Compilation options
+#### Compilation options ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 * `debugInfo`: if *true* (the default) Compass adds debug information to the compiled CSS. Equivalent to `--debug-info` if set to *true* or `--no-debug-info` if set to *false*.
 * `dryRun`: if *true* Compass will just output what it will do without actually doing it. Equivalent to `--dry-run`.
@@ -89,7 +89,7 @@ The full set of parameters supported by the plugin is…
 * `quiet`: if *true* Compass output is suppressed. Equivalent to `--quiet`.
 * `trace`: if *true* Compass displays full stack traces on error. Equivalent to `--trace`.
 
-## Using with other tasks
+## Using with other tasks ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 You will typically want to execute the Compass tasks as part of a larger build. For example this configuration will run `compileSass` as part of `processResources`, `watchSass` as part of the [Application plugin][app-plugin]'s `run` task and clean the output of `compileSass` as part of `clean`:
 
@@ -99,21 +99,21 @@ run.dependsOn watchSass
 clean.dependsOn cleanCompileSass
 ```
 
-# Version history
+# Version history ![when](https://cs.adelaide.edu.au/~christoph/badges/content-when-yellowgreen.svg)
 
-### 1.0.10
+### 1.0.10 ![what-why](https://cs.adelaide.edu.au/~christoph/badges/content-what-why-brightgreen.svg)
 
 * added ability to specify gem versions.
 
-### 1.0.9
+### 1.0.9 ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 * use additional gems without needing a *config.rb* file.
 
-### 1.0.8
+### 1.0.8 ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 * added ability to specify additional gems.
 
-### 1.0.7
+### 1.0.7 ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 * made `javascriptsDir`, `imagesDir` and `importPath` optional.
 
@@ -121,11 +121,11 @@ clean.dependsOn cleanCompileSass
 
 * added ability to specify `importPath`.
 
-### 1.0.5
+### 1.0.5 ![who](https://cs.adelaide.edu.au/~christoph/badges/content-who-yellow.svg)
 
 * added various command line options. Thanks [Ben Groves](http://github.com/bgroves).
 
-### 1.0.4
+### 1.0.4 ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 * added ability to specify file encoding used by JRuby.
 
